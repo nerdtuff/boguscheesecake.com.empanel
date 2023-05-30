@@ -11,6 +11,6 @@ Link to game: [Empanel](https://www.boguscheesecake.com/empanel "Empanel | Bogus
 
 ## Credits
 - ### Development
-    Alfred "AJ" Hollaus ([@nerdtuff](https://www.nerdtuff.com "@nerdtuff"))
+    Alfred "AJ" Hollaus ([@nerdtuff](https://github.com/nerdtuff "@nerdtuff"))
 - ### Writing
-    Thomas Vorderbruggen ([@BogusCheesecake](https://www.boguscheesecake.com "@BogusCheesecake"))
+    Thomas Vorderbruggen ([@BogusCheesecake](https://twitter.com/BogusCheesecake "@BogusCheesecake"))
