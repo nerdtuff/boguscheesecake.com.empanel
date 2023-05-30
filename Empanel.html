@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			Empanel
+		</title>
+		<link rel="icon" type="image/x-icon" href="https://img.itch.zone/aW1hZ2UvMjA5MjM3OS8xMjMxMDY2Ni5wbmc=/original/fKBm79.png">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<audio id="audio" src="https://dl.sndup.net/y3sw/iwouldlovetochatdearbutitis1915andweare3kmilesaway.mp3" type="audio/mpeg" preload="auto">Your browser does not support the audio element.</audio>
+	</head>
+	<style type="text/css">
+		html, body {
+			padding: 0;
+			font-size: 14px;
+			font-family: "Courier New", Arial, Helvetica, sans-serif;
+			display: flex;
+			flex-direction: column;
+		}
+
+		main {
+			width: 100%;
+			max-width: 900px;
+			display: flex;
+			flex-direction: column;
+			align-self: center;
+		}
+
+		.infoButton {
+			margin-top:10px;
+			margin-left:2.5px;
+			margin-right:10px;
+			margin-bottom:2.5px;
+			height: 50px;
+			width: 50px;
+			border-radius: 50%;
+			padding-top: 13px;
+			box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+			border: 3px solid #52463E;
+			box-sizing: border-box;
+			float: right;
+			position: relative;
+			background-color: transparent;
+		}
+
+		.infoButton:hover {
+			background-color: rgba(0, 0, 0, 0.1);
+			cursor: pointer;
+		}
+
+		.infoButton:active {
+			background-color: rgba(0, 0, 0, 0.1);
+			box-shadow: 0px 0px 2px rgba(0, 0, 0, 1);
+			transform: translate(2px,2px);
+		}
+
+		#letter-i {
+			margin-top: -7px;
+			width: 5px;
+			height: 7px;
+			border-width: 0 0 16px 0;
+			top: 50%;
+			left: 50%;
+			-ms-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+			border-style: solid;
+			border-color: #52463E;
+			position: relative;
+		}
+
+		#letter-i::before {
+			width: 5px;
+			height: 5px;
+			border-radius: 50%;
+			background: #52463E;
+			content: "";
+			position: absolute;		
+		}
+
+		.storeButton {
+			margin-top:10px;
+			margin-left:2.5px;
+			margin-right:2.5px;
+			margin-bottom:2.5px;
+			height: 50px;
+			width: 50px;
+			box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+			border-radius: 50%;
+			padding-top: 13px;
+			border: 3px solid #52463E;
+			position: relative;
+			box-sizing: border-box;
+			float: right;
+			background-color: transparent;
+		}
+
+		.storeButton:hover {
+			background-color: rgba(0, 0, 0, 0.1);
+			cursor: pointer;
+		}
+
+		.storeButton:active {
+			background-color: rgba(0, 0, 0, 0.1);
+			box-shadow: 0px 0px 2px rgba(0, 0, 0, 1);
+			transform: translate(2px,2px);
+		}
+
+		.fa-download {
+			font-size: 28px;
+			margin-left: 9px;
+			margin-top: -2px;
+			color: #52463E;
+		}
+
+		.playButton {
+			margin-top:10px;
+			margin-left:10px;
+			margin-right:2.5px;
+			margin-bottom:2.5px;
+			height: 50px;
+			width: 50px;
+			box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+			border-radius: 50%;
+			padding-top: 13px;
+			border: 3px solid #52463E;
+			background-color: transparent;
+			box-sizing: border-box;
+			float: right;
+			position: relative;
+		}
+
+		.playButton:hover {
+			background-color: rgba(0, 0, 0, 0.1);
+			cursor: pointer;
+		}
+
+		.playButton:active {
+			background-color: rgba(0, 0, 0, 0.1);
+			box-shadow: 0px 0px 2px rgba(0, 0, 0, 1);
+			transform: translate(2px,2px);
+		}
+
+		.play {
+			height: 0;
+			width: 0;
+			margin-left: 2px;
+			top: 50%;
+			left: 50%;
+			-ms-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+			border-left: 20px solid #52463E;
+			border-top: 10px solid transparent;
+			border-bottom: 10px solid transparent;
+			box-sizing: border-box;
+			position: absolute;
+		}
+
+		.pause {
+			top: 50%;
+			left: 50%;
+			-ms-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);			
+			height: 18px;
+			width: 16px;
+			margin-left: 0px;
+			border-right: 5px solid #52463E;
+			border-left: 5px solid #52463E;
+			box-sizing: border-box;
+			position: absolute;
+		}
+
+		.musicNote {
+			width: 48.75px;
+		}
+
+		.musicNote, .child-level-1 {
+			margin-top: 6.5px;
+			margin-left: 4.5px;
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.child-level-1 {
+			width: 22.5px;			
+			position: relative;
+		}
+
+		.child {
+			height: 7.5px;
+			width: 9.375px;
+			border-radius: 50%;
+		}
+
+		.child.child-1, .child.child-1::after, .child.child-2, .child.child-2::after, .child.child-2::before {
+			background-color: #52463E;
+		}
+
+		.child::before, .child::after {
+			top: -15px;			
+			position: absolute;
+		}
+
+		.child::after {
+			height: 18.75px;
+			width: 3px;			
+			content: "";
+		}
+
+		.child.child-1::after {
+			right: 13.125px;
+		}
+
+		.child.child-2::after {
+			right: 0;
+		}
+
+		.child.child-2::before {
+			height: 3px;
+			width: 11.25px;
+			right: 1.875px;
+			content: "";
+		}
+
+		textarea[type="text"] {
+			margin-top:2.5px;
+			margin-left:10px;
+			margin-right:10px;
+			margin-bottom:2.5px;
+			padding: 10px;
+			font-size: 1.3em;
+			height: 360px;
+			width: 100%;
+			box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+			border: 3px solid #52463E;
+			text-transform: uppercase;
+			font-family: "Courier New", Arial, Helvetica, sans-serif;
+			font-weight: bold;
+			align-self: center;
+			resize: none;
+			word-wrap: break-word;
+			background-color: transparent;
+			color:#52463E;
+		}
+
+		textarea:hover[type="text"] {
+			background-color: rgba(0, 0, 0, 0.1);
+		}
+		
+		#inputBox {
+			width: 100%;
+			max-width: 900px;
+			display: flex;
+			justify-content: center;
+		}
+
+		.lowerButtonContainer {
+			max-width: 900px;
+			display: flex;
+		}
+		
+		.lowerButton {
+			height: 40px;
+			margin-top:2.5px;
+			margin-bottom:10px;
+			padding: 10px;
+			font-size: 1.1em;
+			box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+			width: 100%;
+ 			font-weight: bold;
+			font-family: "Courier New", Arial, Helvetica, sans-serif;
+			cursor: pointer;
+		}
+
+		.lowerButton:active {
+			box-shadow: 0px 0px 2px rgba(0, 0, 0, 1);
+			transform: translate(2px,2px);
+		}
+
+		#lowerLeftButton {
+			width: 25%;
+			display: flex;
+		}
+		
+		#eraseTextButton {
+			width: 100%;
+			margin-left:10px;
+			margin-right:2.5px;
+			border: 3px solid #52463E;
+			color: #52463E;
+			background-color: transparent;
+		}
+
+		#eraseTextButton:hover {
+			background-color: rgba(0, 0, 0, 0.1);
+		}
+
+		#eraseTextButton:active {
+			background-color: rgba(0, 0, 0, 0.1);
+		}
+
+		#lowerCenterButton {
+			width: 37.5%;
+			display: flex;
+		}
+
+		#toLettersButton {
+			margin-left:2.5px;
+			margin-right:2.5px;
+			border: 3px solid #88ADD7;
+			background-color: #88ADD7;
+			color: white;
+		}
+
+		#toLettersButton:hover {
+			border: 3px solid #7393B5;
+			background-color: #7393B5;
+		}
+
+		#toLettersButton:active {
+			border: 3px solid #7393B5;
+			background-color: #7393B5;
+		}
+
+		#lowerRightButton {
+			width: 37.5%;
+			display: flex;
+		}
+
+		#toMorseButton {
+			margin-left:2.5px;
+			margin-right:10px;
+			border: 3px solid #88ADD7;
+			background-color: #88ADD7;
+			color: white;
+		}
+
+		#toMorseButton:hover {
+			border: 3px solid #7393B5;
+			background-color: #7393B5;
+		}
+
+		#toMorseButton:active {
+			border: 3px solid #7393B5;
+			background-color: #7393B5;
+		}
+
+		h5 {
+			margin-top:60px;
+			margin-left:10px;
+			margin-right:10px;
+			margin-bottom:10px;
+			font-family: "Courier New", Arial, Helvetica, sans-serif;
+			color: #52463E;
+			align-self: center;
+		}
+
+		.creditLinks {
+			display: flex;
+			justify-content: center;
+		}
+
+		a:link {
+			color: #52463E;
+			text-decoration: underline;
+		}
+
+		a:visited {
+			color: #52463E;
+			text-decoration: none;
+		}
+
+		a:hover {
+			color: red;
+			text-decoration: underline;
+		}
+
+		a:active {
+			color: #52463E;
+			text-decoration: none;
+		}
+	</style>
+	<body>
+		<main>
+			<div>
+				<div>
+					<div class="infoButton" onclick="toggleInfo()" title="Get info">
+						<div id="letter-i"></div>
+					</div>
+					<div class="storeButton" onclick="openStoreTab();" title="Download rules">
+						<i class="fa fa-download"></i>
+					</div>
+					<div class="playButton" onclick="toggleClass()" title="Play music">
+						<div id="signifier"></div>
+						<div class="musicNote" id="musicNoteIcon">
+							<div class="child-level-1">
+							  <div class="child child-1"></div>
+							  <div class="child child-2"></div>
+							</div>
+						</div>
+					</div>  
+				</div>
+				<div id="inputBox">
+					<textarea type="text" name="code" id="textInput" maxlength="3000" placeholder="BELOVED -(STOP)-
+					                                      I WOULD LOVE TO CHAT -(STOP)- DEAR -(STOP)- BUT IT IS 1915 AND WE ARE 3000 MILES AWAY -(STOP)-
+														  
+											YOUR LOVE                    
+											
+											
+											
+											
+																	      9:45PM"></textarea>
+				</div>	
+				<div class="lowerButtonContainer">
+					<div id="lowerLeftButton">
+						<button class="lowerButton" id="eraseTextButton" name="button-erase" onclick="eraseText()">
+							CLEAR
+						</button>
+					</div>
+					<div id="lowerCenterButton">
+						<button class="lowerButton" id="toLettersButton" name="button-letters" onclick="convertToLetters()">
+							TO LETTERS
+						</button>
+					</div>
+					<div id="lowerRightButton">
+						<button class="lowerButton" id="toMorseButton" name="button-morse" onclick="convertToMorse()">
+							TO MORSE
+						</button>
+					</div>
+				</div>
+				<div class="creditLinks">
+					<h5>
+						Developed by <a href="https://www.linkedin.com/in/alfredhollaus/" target="_blank">Alfred "AJ" Hollaus</a>
+					</h5>
+					<h5>
+						Music by <a href="https://cloudsintoearth.bandcamp.com/music" target="_blank">Clouds into Earth</a>
+					</h5>
+				</div>
+			</div>
+		</main>
+		<script type="text/javascript">
+			let listToggle = 0
+			const classes = ['pause', 'play']
+			const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 ?!.,".split("");
+			const morseCode = [ ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--..", ".----", "..---", "...--", "....-", ".....", "-....", "--...", "---..", "----.", "-----", "/", "..--..","-.-.--",".-.-.-","--..--" ];
+
+			const toggleClass = () => {
+				try {
+					const sig = document.getElementById('signifier');
+					sig.classList = classes[listToggle++ % classes.length];
+					var audio = document.getElementById("audio");
+					audio.loop = true;
+					audio.volume = 0.8;
+
+					if (document.getElementById('musicNoteIcon') != null) {
+						const note = document.getElementById('musicNoteIcon');
+						note.remove();
+					}
+
+					if (audio.paused == false) {
+						audio.pause();
+					}
+
+					else {
+						audio.play();
+					}
+				}
+				
+				catch (e) {
+					console.log(e);
+				}
+			}
+
+			function openStoreTab() {
+				try {
+					window.open("https://boguscheesecake.itch.io/empanel", '_blank').focus();
+				}
+				
+				catch(e) {
+					console.log(e);
+				}
+			}
+
+			function toggleInfo() {
+				try {
+					var alertText = ("\t\t\t\tWelcome to the Telegram Convertor!\n\n1. Use the download button to acquire the rules PDF\n\n2. Enter text or Morse Code into the box and hit the button you want to translate to\n\n3. Copy your text and send it to your partner via a messaging app of your choice\n\n* Hint: If you're on desktop, you can press 'Ctrl+A' (Windows) or 'Cmd+A' (Mac) to select all text\n\n4. Music can be toggled with the button in the top-right\n\n\n\t\t\t\t\t\t\tEnjoy!");
+					alert(alertText);
+				}
+				
+				catch(e) {
+					console.log(e);
+				}
+			}
+			
+			function convertToMorse() {
+				try {
+					const input = document.getElementById("textInput");
+					const letters = input.value || "";
+					const code = letters.split("").map(l => (morseCode[alphabet.indexOf(l.toUpperCase())])).join(" ");
+					input.value = code;
+				}
+
+				catch(e) {
+					console.log(e);
+				}
+			}
+
+			function convertToLetters() {
+				try {
+					const input = document.getElementById("textInput");
+					const morse = input.value || "";
+					const letters = morse.split(" ").map(code => (alphabet[morseCode.indexOf(code.trim())])).join("");
+					input.value = letters;
+				}
+
+				catch (e) {
+					console.log(e);
+				}
+			}
+
+			function eraseText() {
+				try {
+					document.getElementById("textInput").value = "";
+				}
+
+				catch (e) {
+					console.log(e);
+				}
+			}
+		</script> 
+	</body>
+</html>
